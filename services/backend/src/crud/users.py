@@ -14,7 +14,7 @@ async def create_user(user) -> UserOutSchema:
     try:
         # because it is a tortoise model, then it has this create method that we
         # can use
-        
+
         '''
         In the code **user.dict(exclude_unset=True), the double asterisks (**) are 
         used to perform keyword argument unpacking in Python.
@@ -25,3 +25,7 @@ async def create_user(user) -> UserOutSchema:
         will be unpacked as keyword arguments.
         '''
         user_obj = await Users.create(**user.dict(exclude_unset=True))
+    except IntegrityError:
+        raise HTTPException(status_code=401, detail=f"Sorry, that username already exits.")
+    
+    return await UserOutSchema.from_tortoise_orm(user_obj)
