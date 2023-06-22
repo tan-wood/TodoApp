@@ -6,7 +6,7 @@ services:
     ports:
       - 5050:5050
     environment:
-      - DATABASE_URL=postgres://postgres:postgres@db:5432/todo_app
+      - DATABASE_URL=postgres://postgres:th!sismyd@tab@sePa55word@db:5432/todo_app
     volumes:
       - ./services/backend:/app
     command: uvicorn src.main:app --reload --host 0.0.0.0 --port 5050
@@ -20,6 +20,6 @@ services:
       - POSTGRES_PASSWORD=th!sismyd@tab@sePa55word
       - POSTGRES_DB=todo_app
     volumes:
-      - postgres_data:/usr/local/Cellar/postgresql@15/15.3_1/bin #this is very important to have for the backend to work!!
+      - postgres_data:/usr/local/Cellar/postgresql@15/15.3_1/bin
 volumes:
   postgres_data:
