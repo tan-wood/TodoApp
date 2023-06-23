@@ -1,6 +1,5 @@
 from tortoise import fields, models
 import datetime
-from src.database.models import Users
 
 class Users(models.Model):
     id = fields.IntField(pk=True)

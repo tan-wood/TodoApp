@@ -9,3 +9,6 @@ tortoise-orm==0.19.2
 uvicorn==0.20.0
 postgres==4.0.0
 pytest==7.3.2
+Docker==20.10.21
+Databases==0.6.2
+python==3.11.0
