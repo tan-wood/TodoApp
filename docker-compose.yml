@@ -22,5 +22,13 @@ services:
       - POSTGRES_DB=todo_app
     volumes:
       - postgres_data:/usr/local/Cellar/postgresql@15/15.3_1/bin
+
+  web:
+    build: ./services/test
+    command: uvicorn main:app --reload --workers 1 --host 0.0.0.0 --port 8000
+    volumes:
+      - ./services/test:/tests
+    ports:
+      - 8002:8000
 volumes:
   postgres_data:
