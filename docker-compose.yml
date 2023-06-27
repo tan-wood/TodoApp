@@ -27,7 +27,7 @@ services:
     build: ./services/test
     command: uvicorn main:app --reload --workers 1 --host 0.0.0.0 --port 8000
     volumes:
-      - ./services/test:/tests
+      - ./services/test:/app
     ports:
       - 8002:8000
 volumes:
