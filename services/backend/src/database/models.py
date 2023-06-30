@@ -12,7 +12,7 @@ class Users(models.Model):
 class Tasks(models.Model):
 
     id = fields.IntField(pk=True)
-    title = fields.CharField(max_length=225)
+    title = fields.CharField(max_length=300)
     comments = fields.TextField(null=True)
     priority_level = fields.IntField(min_value=1, max_value = 5)
     due_date = fields.DatetimeField()
