@@ -29,6 +29,17 @@
               <a class="nav-link" @click="logout">Log Out</a>
             </li>
           </ul>
+          <ul v-else class="navbar-nav me-auto mb-2 mb-md-0">
+            <li class="nav-item">
+              <router-link class="nav-link" to="/">Home</router-link>
+            </li>
+            <li class="nav-item">
+              <router-link class="nav-link" to="/register">Register</router-link>
+            </li>
+            <li class="nav-item">
+              <router-link class="nav-link" to="/login">Log In</router-link>
+            </li>
+          </ul>
         </div>
       </div>
     </nav>
@@ -58,3 +69,8 @@ a {
   cursor: pointer;
 }
 </style>
+
+<!-- The NavBar is used for navigating to other pages in the application. The isLoggedIn property is used to check if a user is logged in from the store. 
+    If they are logged in, the dashboard and profile is accessible to them, including the logout link.
+
+The logout function dispatches the logOut action and redirects the user to the /login route. -->
