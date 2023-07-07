@@ -1,4 +1,18 @@
-
+<template>
+    <section>
+        <form @submit.prevent="submit">
+            <div class="mb-3">
+                <label for="username" class="form-label">Username:</label>
+                <input type="text" name="username" v-model="form.username" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Password:</label>
+                <input type="password" name="userpasswordname" v-model="form.password" class="form-control">
+            </div>
+            <button class="btn btn-primary" type="submit">Submit</button>
+        </form>
+    </section>
+</template>
 
 <script>
 import { defineComponent } from 'vue';

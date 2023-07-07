@@ -13,7 +13,7 @@ const getters = {
 // these are matching the backend api routes that we defined with out fastapi!
 
 const actions = {
-  async createTask({ dispatch }, task) {
+  async createTask({ dispatch }, task) { //TODO build dtos for these so that we can get some type checking in here
     await axios.post("tasks", task);
     await dispatch("getTasks");
   },
