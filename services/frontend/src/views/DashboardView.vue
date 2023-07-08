@@ -1,7 +1,7 @@
 <template>
     <div>
         <section>
-            <h1>Add new note</h1>
+            <h1>Add new task</h1>
             <hr><br>
             <form @submit.prevent="submit">
                 <div class="mb-3">
@@ -20,11 +20,37 @@
                     <label for="due_date" class="form-label">Due Date:</label>
                     <input type="date" name="due_date" v-model="form.due_date" class="form-control">
                 </div>
+                <button class="btn btn-primary" type="submit">Submit</button>
             </form>
         </section>
+
         <br><br>
+        
         <section>
-            
+            <h1>Tasks</h1>
+            <hr><br>
+
+            <div v-if="tasks.length">
+                <div v-for="task in tasks" :key="task.id" class="notes">
+                    <div class="card" style="widht: 18rem;">
+                        <div class="card-body">
+                            <ul>
+                                <li><strong>Task Title:</strong> {{ task.title }}</li>
+                                <li><strong>Comments:</strong> {{ task.comments }}</li>
+                                <li><strong>Priority Level:</strong> {{ task.priority_level }}</li>
+                                <li><strong>Due Date:</strong> {{ task.due_date }}</li>
+                                <li><router-link :to="{name: 'Task', params:{id: task.id}}">View</router-link></li>
+                            </ul>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+            <div v-else>
+                <p>Nothing to see. Go add some tasks</p>
+            </div>
         </section>
     </div>
 </template>
@@ -62,3 +88,7 @@ export default defineComponent({
 });
 
 </script>
+
+<!--We'll configure the route and view here shortly, but the key thing to take away is that the route takes in the note ID and sends the user to the corresponding route -- e.g., note/1, note/2, note/10, note/101, and so forth.
+
+The created function is called during the creation of the component, which hooks into the component lifecycle. In it, we called the mapped getNotes action.-->
