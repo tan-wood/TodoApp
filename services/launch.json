@@ -1,0 +1,10 @@
+{
+  "client": {
+    "name": "Chrome",
+    "port": 9222
+  },
+  "server": {
+    "host": "localhost",
+    "port": 5050
+  }
+}

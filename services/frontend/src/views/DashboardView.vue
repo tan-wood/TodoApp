@@ -30,7 +30,7 @@
             <h1>Tasks</h1>
             <hr><br>
 
-            <div v-if="tasks.length">
+            <div v-if="tasks !== null && tasks.length">
                 <div v-for="task in tasks" :key="task.id" class="notes">
                     <div class="card" style="widht: 18rem;">
                         <div class="card-body">

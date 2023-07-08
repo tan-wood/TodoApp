@@ -6,7 +6,7 @@ class Users(models.Model):
     username = fields.CharField(max_length=20, unique=True)
     password = fields.CharField(max_length=128, null=True)
     created_at = fields.DatetimeField(auto_now_add=True)
-    modified_at = fields.DatetimeField(auto_now=True)
+    modified_at = fields.DatetimeField(auto_now_add=True)
 
 
 class Tasks(models.Model):
@@ -18,7 +18,7 @@ class Tasks(models.Model):
     due_date = fields.DatetimeField()
     user = fields.ForeignKeyField("models.Users", related_name="task")
     created_at = fields.DatetimeField(auto_now_add=True)
-    modified_at = fields.DatetimeField(auto_now=True)
+    modified_at = fields.DatetimeField(auto_now_add=True)
 
     def __str__(self):
         return f"{self.title}, {self.user_id} on {self.created_at}"
