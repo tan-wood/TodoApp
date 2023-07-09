@@ -39,7 +39,7 @@
                                 <li><strong>Comments:</strong> {{ task.comments }}</li>
                                 <li><strong>Priority Level:</strong> {{ task.priority_level }}</li>
                                 <li><strong>Due Date:</strong> {{ task.due_date }}</li>
-                                <li><router-link :to="{name: 'Task', params:{id: task.id}}">View</router-link></li>
+                                <li><router-link :to="{name: 'tasks', params:{id: task.id}}">View</router-link></li>
                             </ul>
                         </div>
 
@@ -82,6 +82,7 @@ export default defineComponent({
     methods:{
         ...mapActions(['createTask']),
         async submit(){
+            this.form.due_date = this.form.due_date.toISOString();
             await this.createTask(this.form);
         },
     },

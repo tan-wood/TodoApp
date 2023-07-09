@@ -15,7 +15,7 @@ class Tasks(models.Model):
     title = fields.CharField(max_length=300)
     comments = fields.TextField(null=True)
     priority_level = fields.IntField(min_value=1, max_value = 5)
-    due_date = fields.DatetimeField()
+    due_date = fields.DateField()
     user = fields.ForeignKeyField("models.Users", related_name="task")
     created_at = fields.DatetimeField(auto_now_add=True)
     modified_at = fields.DatetimeField(auto_now_add=True)
