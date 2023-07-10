@@ -1,7 +1,19 @@
 {
-    // Use IntelliSense to learn about possible attributes.
-    // Hover to view descriptions of existing attributes.
-    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
-    "version": "0.2.0",
-    "configurations": []
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "chrome",
+      "request": "launch",
+      "name": "Vue.js: Chrome",
+      "url": "http://localhost:8080",
+      "webRoot": "${workspaceFolder}/services/frontend/src",
+      "sourceMapPathOverrides": {
+        "webpack:///views/*": "${webRoot}/views/*",
+        "webpack:///store/*": "${webRoot}/store/*",
+        "webpack:///components/*": "${webRoot}/components/*",
+        "webpack:///router/*": "${webRoot}/router/*",
+        "webpack:///src/*": "${webRoot}/*"
+      }
+    }
+  ]
 }

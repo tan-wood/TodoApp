@@ -13,7 +13,8 @@ const getters = {
 // these are matching the backend api routes that we defined with out fastapi!
 
 const actions = {
-  async createTask({ dispatch }, task) { //TODO build dtos for these so that we can get some type checking in here
+  async createTask({ dispatch }, task) {
+    //TODO build dtos for these so that we can get some type checking in here
     await axios.post("tasks", task);
     await dispatch("getTasks");
   },
@@ -27,7 +28,7 @@ const actions = {
     commit("setTask", data);
   },
   // eslint-disable-next-line no-empty-pattern
-  async updateTAsk({}, task) {
+  async updateTask({}, task) {
     await axios.patch(`task/${task.id}`, task.form);
   },
   // eslint-disable-next-line no-empty-pattern
