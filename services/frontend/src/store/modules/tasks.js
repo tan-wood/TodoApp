@@ -1,4 +1,5 @@
 import axios from "axios";
+import taskService from "../services/taskService"
 
 const state = {
   tasks: null,
@@ -24,10 +25,14 @@ const actions = {
     commit("setTasks", data);
   },
   async viewTask({ commit }, id) {
-    let { data } = await axios.get(`task/${id}`);
-    console.log(data); //TODO debug
-    commit("setTask", data);
-    console.log(state.task); //TODO debug
+    await taskService
+      .getTask(id)
+      .then((result) => {
+        commit("setTask", result);
+      })
+      .catch((e) => {
+        console.error(e);
+      });
   },
   // eslint-disable-next-line no-empty-pattern
   async updateTask({}, task) {

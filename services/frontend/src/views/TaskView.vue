@@ -23,19 +23,14 @@ import { mapGetters, mapActions } from "vuex";
 export default defineComponent({
   name: "Task",
   props: ["id"],
-  async created() {
-    try {
-      console.log("hi"); //TODO debug
-      let taskId = this.id;
-      console.log(`${taskId}`); //TODO debug
-      // this calls the store method that in there it sets the task
-      await this.viewTask(taskId);
-      console.log("Testing if this gets hit"); //TODO debug
-    } catch (error) {
-      console.log("hey this is getting hit"); //TODO debug
-      console.error(error);
-      this.$router.push("/dashboard");
+  data() {
+    return {
+      taskid: `${this.$route.params.id}`
     }
+  }
+  async created() {
+    await this.viewTask(this.taskid)
+      .catch((e) => console.error(e));
   },
   computed: {
     // and then here it grabs that task from the store
