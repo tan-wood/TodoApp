@@ -6,13 +6,10 @@
       "request": "launch",
       "name": "Vue.js: Chrome",
       "url": "http://localhost:8080",
-      "webRoot": "${workspaceFolder}/services/frontend/src",
+      "webRoot": "${workspaceFolder}/services",
+      "sourceMaps": true,
       "sourceMapPathOverrides": {
-        "webpack:///views/*": "${webRoot}/views/*",
-        "webpack:///store/*": "${webRoot}/store/*",
-        "webpack:///components/*": "${webRoot}/components/*",
-        "webpack:///router/*": "${webRoot}/router/*",
-        "webpack:///src/*": "${webRoot}/*"
+        "*": "${webRoot}/*"
       }
     }
   ]
