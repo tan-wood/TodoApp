@@ -25,10 +25,14 @@ export default defineComponent({
   props: ["id"],
   async created() {
     try {
-      console.log("hi");
+      console.log("hi"); //TODO debug
+      let taskId = this.id;
+      console.log(`${taskId}`); //TODO debug
       // this calls the store method that in there it sets the task
-      await this.viewTask(this.id);
+      await this.viewTask(taskId);
+      console.log("Testing if this gets hit"); //TODO debug
     } catch (error) {
+      console.log("hey this is getting hit"); //TODO debug
       console.error(error);
       this.$router.push("/dashboard");
     }
