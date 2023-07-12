@@ -40,8 +40,8 @@ const actions = {
 };
 
 const mutations = {
-  setUser(state, username) {
-    state.user = username;
+  setUser(state, user) {
+    state.user = user;
   },
   logout(state, user) {
     state.user = user;
