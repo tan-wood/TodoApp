@@ -5,7 +5,7 @@
     <p><strong>Priority Level:</strong> {{ task.priority_level }}</p>
     <p><strong>Due Date:</strong> {{ task.due_date }}</p>
 
-    <div v-if="user.id === task.author.id">
+    <div v-if="user.id === task.user.id">
       <p>
         <router-link :to="{ name: 'EditTask', params: { id: task.id } }" class="btn btn-primary"
           >Edit</router-link
@@ -19,6 +19,7 @@
 <script>
 import { defineComponent } from "vue";
 import { mapGetters, mapActions } from "vuex";
+import { Suspense } from "vue";
 
 export default defineComponent({
   name: "Task",
