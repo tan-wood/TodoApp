@@ -25,12 +25,13 @@ export default defineComponent({
   props: ["id"],
   data() {
     return {
-      taskid: `${this.$route.params.id}`
-    }
-  }
+      taskid: `${this.$route.params.id}`,
+    };
+  },
   async created() {
-    await this.viewTask(this.taskid)
-      .catch((e) => console.error(e));
+    console.log(`${this.taskid}`);
+    await this.viewTask(this.taskid).catch((e) => console.error(e));
+    console.log(`${this.task}`); //TODO debug
   },
   computed: {
     // and then here it grabs that task from the store
