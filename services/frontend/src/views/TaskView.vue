@@ -32,7 +32,6 @@ export default defineComponent({
   async created() {
     console.log(`${this.taskid}`);
     await this.viewTask(this.taskid).catch((e) => console.error(e));
-    console.log(`${this.task}`); //TODO debug
   },
   computed: {
     // and then here it grabs that task from the store

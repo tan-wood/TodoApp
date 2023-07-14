@@ -1,4 +1,5 @@
 from typing import Optional
+from datetime import date
 
 from pydantic import BaseModel
 from tortoise.contrib.pydantic import pydantic_model_creator
@@ -17,3 +18,5 @@ TaskOutSchema = pydantic_model_creator(
 class UpdateTask(BaseModel):
     title: Optional[str]
     comments: Optional[str]
+    priority_level: Optional[int]
+    due_date: Optional[date]
