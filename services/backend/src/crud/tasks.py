@@ -1,6 +1,6 @@
 from fastapi import HTTPException
 from tortoise.exceptions import DoesNotExist
-
+from src.schemas.token import Status
 from src.database.models import Tasks
 from src.schemas.tasks import TaskOutSchema
 import pdb
@@ -32,7 +32,9 @@ class TaskCRUD:
             await Tasks.filter(id=task_id).update(**task.dict(exclude_unset=True))
             return await TaskOutSchema.from_queryset_single(Tasks.get(id=task_id))
         
-    async def delete_task(task_id, current_user):
+    async def delete_task(task_id, current_user)->Status:
+        pdb.set_trace()
+        breakpoint()
         try:
             db_task = await TaskOutSchema.from_queryset_single(Tasks.get(id=task_id))
         except DoesNotExist:
@@ -42,5 +44,7 @@ class TaskCRUD:
             deleted_count = await Tasks.filter(id=task_id).delete()
             if not deleted_count:
                 raise HTTPException(status_code=404, detail=f"Task {task_id} not found")
-            return f"Deleted task {task_id}"
+            status = Status
+            status.message = f"Deleted task {task_id}"
+            return status
         raise HTTPException(status_code=403, detail=f"Not authorized to delete")

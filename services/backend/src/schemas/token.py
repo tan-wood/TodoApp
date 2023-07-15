@@ -5,4 +5,4 @@ class TokenData(BaseModel):
     username: Optional[str] = None
 
 class Status(BaseModel):
-    message:str
+    message:Optional[str]

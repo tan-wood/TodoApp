@@ -30,7 +30,6 @@ export default defineComponent({
     };
   },
   async created() {
-    console.log(`${this.taskid}`);
     await this.viewTask(this.taskid).catch((e) => console.error(e));
   },
   computed: {
